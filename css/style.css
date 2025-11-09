@@ -177,6 +177,7 @@ section {
 
 .post p {
     line-height: 1.6;
+    color:black;
 }
 
 .read-more {
@@ -290,3 +291,4 @@ section {
         align-items: center;
     }
 }
+
