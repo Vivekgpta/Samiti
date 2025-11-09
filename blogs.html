@@ -1,176 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our College Group - Blogs</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f5f9ff;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #0056b3;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-      margin-bottom: 30px;
-    }
-
-    .blog-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      overflow: hidden;
-      padding: 20px;
-    }
-
-    .blog-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .blog-card h2 {
-      color: #0056b3;
-      margin-bottom: 10px;
-    }
-
-    .blog-card p {
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 10px;
-      text-align: justify;
-    }
-
-    .blog-card .author {
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    footer {
-      text-align: center;
-      background: #2c3e50;
-      color: white;
-      padding: 15px 0;
-      margin-top: 40px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Memories - Blog</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header>
+        <h1>College Diaries</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="members.html">Members</a>
+            <a href="stories.html">Stories</a>
+            <a href="trips.html">Trips</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="blogs.html">Blogs</a>
 
-<header>
-    <h1>COLLEGE DIARIES</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="members.html">Members</a>
-        <a href="stories.html">Stories</a>
-        <a href="trips.html">Trips</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="blogs.html">Blogs</a>
-    </nav>
-</header>
+        </nav>
+    </header>
 
-  <div class="container">
-    <h1>Blogs & Stories</h1>
-<!-- 
-    <div class="blog-card">
-      <img src="images/story2.jpg" alt="College Trip">
-      <h2>Our Amazing College Trip</h2>
-      <p>
-        Last month, our group went on an unforgettable college trip to the mountains.  
-        We explored nature, shared stories around the bonfire, and created memories that will last a lifetime.  
-        Everyone enjoyed team activities and bonding moments.
-      </p>
-      <p class="author"><strong>Author:</strong> Vivek Gupta</p>
-    </div>
 
-    <div class="blog-card">
-      <img src="images/story1.jpg" alt="College Event">
-      <h2>Annual College Fest Highlights</h2>
-      <p>
-        The annual college fest was a massive success! Our group participated in several competitions, cultural events, and workshops.  
-        We cheered for each other and made sure everyone felt included. It was truly a celebration of talent and friendship.
-      </p>
-      <p class="author"><strong>Author:</strong> Muskan Dwivedi</p>
-    </div>
+    <main class="blog-container">
+        <!-- Left Column: Blog Posts -->
+        <section class="blog-posts">
+            <article class="post">
+                <img src="images/blog1.jpg" alt="Blog 1">
+                <h2>Our First Day at College</h2>
+                <p class="meta">Posted on Nov 8, 2025 • by Vivek Gupta</p>
+                <p>That first step inside the campus still feels fresh. The excitement, the anxiety, and the smiles we shared — unforgettable moments that marked our journey.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </article>
 
-    <div class="blog-card">
-      <img src="images/story3.jpg" alt="Success Story">
-      <h2>Achieving Our First Milestone</h2>
-      <p>
-        One of our members recently achieved a remarkable milestone in academics.  
-        We celebrated together, shared our experiences, and motivated each other to aim higher.  
-        It felt amazing to be part of a supportive and encouraging community.
-      </p>
-      <p class="author"><strong>Author:</strong> Abhishek Pandey</p>
-    </div>
-    <div class="blog-card">
-      <img src="images/story2.jpg" alt="College Trip">
-      <h2>Our Amazing College Trip</h2>
-      <p>
-        Last month, our group went on an unforgettable college trip to the mountains.  
-        We explored nature, shared stories around the bonfire, and created memories that will last a lifetime.  
-        Everyone enjoyed team activities and bonding moments.
-      </p>
-      <p class="author"><strong>Author:</strong> Vivek Gupta</p>
-    </div>
+            <article class="post">
+                <img src="images/blog2.jpg" alt="Blog 2">
+                <h2>The Cultural Fest Chronicles</h2>
+                <p class="meta">Posted on Oct 25, 2025 • by Rani Dwivedi</p>
+                <p>From endless rehearsals to the grand stage, our cultural fest was more than an event — it was pure emotion and teamwork shining together.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </article>
 
-    <div class="blog-card">
-      <img src="images/story1.jpg" alt="College Event">
-      <h2>Annual College Fest Highlights</h2>
-      <p>
-        The annual college fest was a massive success! Our group participated in several competitions, cultural events, and workshops.  
-        We cheered for each other and made sure everyone felt included. It was truly a celebration of talent and friendship.
-      </p>
-      <p class="author"><strong>Author:</strong> Muskan Dwivedi</p>
-    </div>
+            <article class="post">
+                <img src="images/blog3.jpg" alt="Blog 3">
+                <h2>Farewell 2025 — Tears and Cheers</h2>
+                <p class="meta">Posted on Sep 15, 2025 • by Dharmendra Dwivedi</p>
+                <p>Goodbyes are hard, but the memories we created will live forever. Here’s how our farewell celebration became a day to remember.</p>
+                <a href="#" class="read-more">Read More →</a>
+            </article>
+        </section>
 
-    <div class="blog-card">
-      <img src="images/story3.jpg" alt="Success Story">
-      <h2>Achieving Our First Milestone</h2>
-      <p>
-        One of our members recently achieved a remarkable milestone in academics.  
-        We celebrated together, shared our experiences, and motivated each other to aim higher.  
-        It felt amazing to be part of a supportive and encouraging community.
-      </p>
-      <p class="author"><strong>Author:</strong> Abhishek Pandey</p>
-    </div>
-  </div> -->
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#">Campus Life</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Memories</a></li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">College Trips</a></li>
+            </ul>
 
-  <footer>
-    <p>© 2025 Our College Group. All Rights Reserved.</p>
-  </footer>
+            <h3>Recent Posts</h3>
+            <ul>
+                <li><a href="#">Alumni Meet Highlights</a></li>
+                <li><a href="#">Top 5 College Cafeterias</a></li>
+                <li><a href="#">Our Final Year Projects</a></li>
+            </ul>
+        </aside>
+    </main>
 
+    <footer>
+        <p>© 2025 College Group. All rights reserved.</p>
+    </footer>
 </body>
 </html>
