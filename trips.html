@@ -1,49 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trips - College Memories</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trips - College Diaries</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #5a189a, #9d4edd, #c77dff);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #ffccff;
+      transform: scale(1.1);
+    }
+
+    /* Section */
+    section.trips {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section.trips h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    .featured-stories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #f3e5f5;
+    }
+
+    /* Trip Plans Section */
+    .trip-plans {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 40px 20px;
+      margin: 40px 10px;
+      text-align: center;
+    }
+
+    .trip-plans h2 {
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .plan-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      width: 280px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .plan-card h3 {
+      margin-bottom: 10px;
+      color: #ffe6ff;
+    }
+
+    .plan-card ul {
+      list-style: none;
+    }
+
+    .plan-card ul li {
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+
+    /* Trip Moments Section */
+    .trip-moments {
+      padding: 40px 20px;
+    }
+
+    .trip-moments h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .moment-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .moment-gallery img {
+      width: 280px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .moment-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.1);
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .card img {
+        height: 180px;
+      }
+
+      .plan-card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
+  <header>
     <h1>COLLEGE DIARIES</h1>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="members.html">Members</a>
-        <a href="stories.html">Stories</a>
-        <a href="trips.html">Trips</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="blogs.html">Blogs</a>
+      <a href="index.html">Home</a>
+      <a href="members.html">Members</a>
+      <a href="stories.html">Stories</a>
+      <a href="trips.html">Trips</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blogs.html">Blogs</a>
     </nav>
-</header>
+  </header>
 
-<section class="trips">
-    <h2>College Trips</h2>
+  <section class="trips">
+    <h2>Our College Trips</h2>
     <div class="featured-stories">
-        <div class="card">
-            <img src="images/story2.jpg" alt="Trip 1">
-            <h3>Mountain Trek</h3>
-            <p>Adventurous trek with friends to the hills.</p>
-        </div>
-        <div class="card">
-            <img src="images/story1.jpg" alt="Trip 2">
-            <h3>Beach Trip</h3>
-            <p>Relaxing and fun at the seaside with everyone.</p>
-        </div>
-        <div class="card">
-            <img src="images/story3.jpg" alt="Trip 3">
-            <h3>City Tour</h3>
-            <p>Explored the city and captured memories.</p>
-        </div>
+      <div class="card">
+        <img src="images/story2.jpg" alt="Trip 1">
+        <h3>Mountain Trek</h3>
+        <p>A thrilling climb with laughter, campfires, and breathtaking views. Unforgettable moments under starry skies.</p>
+      </div>
+      <div class="card">
+        <img src="images/story1.jpg" alt="Trip 2">
+        <h3>Beach Getaway</h3>
+        <p>Waves, sandcastles, and evening sunsets. A peaceful escape filled with joy and friendship.</p>
+      </div>
+      <div class="card">
+        <img src="images/story3.jpg" alt="Trip 3">
+        <h3>City Tour</h3>
+        <p>Exploring new streets, cultures, and cuisines together. Every photo tells a memory.</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<footer>
+  <section class="trip-plans">
+    <h2>Upcoming Trip Plans</h2>
+    <div class="plans">
+      <div class="plan-card">
+        <h3>Manali Winter Expedition</h3>
+        <ul>
+          <li>• Date: 5th - 10th January</li>
+          <li>• Activities: Skiing, Bonfire Nights</li>
+          <li>• Stay: Wooden Cottages</li>
+          <li>• Team Leader: Muskan Dwivedi</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <h3>Rishikesh Adventure Camp</h3>
+        <ul>
+          <li>• Date: 15th - 18th March</li>
+          <li>• Activities: Rafting, Camping</li>
+          <li>• Stay: Riverside Tents</li>
+          <li>• Team Leader: Vivek Gupta</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="trip-moments">
+    <h2>Captured Trip Moments</h2>
+    <div class="moment-gallery">
+      <img src="images/story1.jpg" alt="Moment 1">
+      <img src="images/story2.jpg" alt="Moment 2">
+      <img src="images/story3.jpg" alt="Moment 3">
+      <img src="images/story2.jpg" alt="Moment 4">
+      <img src="images/story1.jpg" alt="Moment 5">
+    </div>
+  </section>
+
+  <footer>
     <p>© 2025 College Group. All rights reserved.</p>
-</footer>
-<script src="js/main.js"></script>
+  </footer>
 </body>
+
 </html>

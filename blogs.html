@@ -1,77 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Memories - Blog</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Memories - Blog</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: linear-gradient(to bottom, purple, rgb(223, 25, 174), pink);
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(90deg, purple, deeppink, orange);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    header nav {
+      margin-top: 10px;
+    }
+
+    header nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    header nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 3px;
+      background-color: yellow;
+      transition: width 0.3s;
+    }
+
+    header nav a:hover::after {
+      width: 100%;
+    }
+
+    header nav a:hover {
+      color: #ffeb3b;
+    }
+
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .blog-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 8%;
+      gap: 30px;
+    }
+
+    .blog-posts {
+      flex: 3;
+    }
+
+    .post {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      color: black;
+    }
+
+    .post img {
+      width: 100%;
+      border-radius: 10px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .post h2 {
+      margin-top: 15px;
+      color: #283593;
+    }
+
+    .post .meta {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .post p {
+      line-height: 1.6;
+      color: black;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      color: #283593;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    .sidebar {
+      flex: 1;
+      background: white;
+      margin-top: 10px;
+      height: fit-content;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      color: black;
+    }
+
+    .sidebar h3 {
+      color: #283593;
+      border-bottom: 2px solid #283593;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #283593;
+    }
+
+    footer {
+      background: #283593;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .blog-container {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .featured-stories {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .blog-container {
+        padding: 20px;
+      }
+
+      header nav a {
+        display: inline-block;
+        margin: 10px 8px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>College Diaries</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="members.html">Members</a>
-            <a href="stories.html">Stories</a>
-            <a href="trips.html">Trips</a>
-            <a href="achievements.html">Achievements</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="blogs.html">Blogs</a>
+  <header>
+    <h1>College Diaries</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="members.html">Members</a>
+      <a href="stories.html">Stories</a>
+      <a href="trips.html">Trips</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blogs.html">Blogs</a>
+    </nav>
+  </header>
 
-        </nav>
-    </header>
+  <main class="blog-container">
+    <!-- Left Column: Blog Posts -->
+    <section class="blog-posts">
+      <article class="post">
+        <img src="images/story3.jpg" alt="Blog 1">
+        <h2>Our First Day at College</h2>
+        <p class="meta">Posted on Nov 8, 2025 • by Vivek Gupta</p>
+        <p>That first step inside the campus still feels fresh. The excitement, the anxiety, and the smiles we shared — unforgettable moments that marked our journey.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </article>
 
+      <article class="post">
+        <img src="images/story3.jpg" alt="Blog 2">
+        <h2>The Cultural Fest Chronicles</h2>
+        <p class="meta">Posted on Oct 25, 2025 • by Rani Dwivedi</p>
+        <p>From endless rehearsals to the grand stage, our cultural fest was more than an event — it was pure emotion and teamwork shining together.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </article>
 
-    <main class="blog-container">
-        <!-- Left Column: Blog Posts -->
-        <section class="blog-posts">
-            <article class="post">
-                <img src="images/blog1.jpg" alt="Blog 1">
-                <h2>Our First Day at College</h2>
-                <p class="meta">Posted on Nov 8, 2025 • by Vivek Gupta</p>
-                <p>That first step inside the campus still feels fresh. The excitement, the anxiety, and the smiles we shared — unforgettable moments that marked our journey.</p>
-                <a href="#" class="read-more">Read More →</a>
-            </article>
+      <article class="post">
+        <img src="images/story3.jpg" alt="Blog 3">
+        <h2>Farewell 2025 — Tears and Cheers</h2>
+        <p class="meta">Posted on Sep 15, 2025 • by Dharmendra Dwivedi</p>
+        <p>Goodbyes are hard, but the memories we created will live forever. Here’s how our farewell celebration became a day to remember.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </article>
+    </section>
 
-            <article class="post">
-                <img src="images/blog2.jpg" alt="Blog 2">
-                <h2>The Cultural Fest Chronicles</h2>
-                <p class="meta">Posted on Oct 25, 2025 • by Rani Dwivedi</p>
-                <p>From endless rehearsals to the grand stage, our cultural fest was more than an event — it was pure emotion and teamwork shining together.</p>
-                <a href="#" class="read-more">Read More →</a>
-            </article>
+    <!-- Right Column: Sidebar -->
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <ul>
+        <li><a href="#">Campus Life</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Memories</a></li>
+        <li><a href="#">Friends</a></li>
+        <li><a href="#">College Trips</a></li>
+      </ul>
 
-            <article class="post">
-                <img src="images/blog3.jpg" alt="Blog 3">
-                <h2>Farewell 2025 — Tears and Cheers</h2>
-                <p class="meta">Posted on Sep 15, 2025 • by Dharmendra Dwivedi</p>
-                <p>Goodbyes are hard, but the memories we created will live forever. Here’s how our farewell celebration became a day to remember.</p>
-                <a href="#" class="read-more">Read More →</a>
-            </article>
-        </section>
+      <h3>Recent Posts</h3>
+      <ul>
+        <li><a href="#">Alumni Meet Highlights</a></li>
+        <li><a href="#">Top 5 College Cafeterias</a></li>
+        <li><a href="#">Our Final Year Projects</a></li>
+      </ul>
+    </aside>
+  </main>
 
-        <!-- Right Column: Sidebar -->
-        <aside class="sidebar">
-            <h3>Categories</h3>
-            <ul>
-                <li><a href="#">Campus Life</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Memories</a></li>
-                <li><a href="#">Friends</a></li>
-                <li><a href="#">College Trips</a></li>
-            </ul>
-
-            <h3>Recent Posts</h3>
-            <ul>
-                <li><a href="#">Alumni Meet Highlights</a></li>
-                <li><a href="#">Top 5 College Cafeterias</a></li>
-                <li><a href="#">Our Final Year Projects</a></li>
-            </ul>
-        </aside>
-    </main>
-
-    <footer>
-        <p>© 2025 College Group. All rights reserved.</p>
-    </footer>
+  <footer>
+    <p>© 2025 College Group. All rights reserved.</p>
+  </footer>
 </body>
 </html>

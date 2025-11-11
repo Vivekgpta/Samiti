@@ -1,49 +1,457 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stories - College Memories</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stories - College Memories</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .group-story {
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  animation: fadeUp 1s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing gradient border effect */
+.group-story::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #6a11cb, #3333ff, #6a11cb, #6a11cb);
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.7;
+  animation: gradientShift 5s infinite linear;
+}
+
+/* Headings */
+.group-story h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #ffeb3b;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: pulseGlow 2s infinite alternate;
+}
+
+/* Paragraphs */
+.group-story p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #f1f1f1;
+  animation: fadeIn 1.3s ease;
+}
+
+/* Hover bounce */
+.group-story:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGlow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 25px #ffe600; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .group-story {
+    padding: 25px;
+  }
+  .group-story h2 {
+    font-size: 1.8rem;
+  }
+  .group-story p {
+    font-size: 1rem;
+  }
+}
+
+    .stories, .group-story, .individuals {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .featured-stories, .people {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card, .person {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
+      animation: fadeInUp 1s ease;
+    }
+
+    .card:hover, .person:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    img {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .read-more {
+      color: #ffd700;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 15px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .modal-content {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 600px;
+      animation: zoomIn 0.4s ease;
+    }
+
+    .close {
+      float: right;
+      font-size: 25px;
+      cursor: pointer;
+      color: red;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+
+    /* Search Box */
+    .search-box {
+      margin: 20px auto 40px;
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 60%;
+      padding: 12px;
+      font-size: 1em;
+      border: none;
+      border-radius: 25px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .search-box input:focus {
+      box-shadow: 0 0 10px #ffd700;
+      transform: scale(1.02);
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: scale(0.8);
+      pointer-events: none;
+    }
+
+  </style>
 </head>
 <body>
+
 <header>
-    <h1>COLLEGE DIARIES</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="members.html">Members</a>
-        <a href="stories.html">Stories</a>
-        <a href="trips.html">Trips</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="blogs.html">Blogs</a>
-    </nav>
+  <h1>COLLEGE DIARIES</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="members.html">Members</a>
+    <a href="stories.html">Stories</a>
+    <a href="trips.html">Trips</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blogs.html">Blogs</a>
+  </nav>
 </header>
 
 <section class="stories">
-    <h2>College Stories</h2>
-    <div class="featured-stories">
-        <div class="card">
-            <img src="images/story1.jpg" alt="Story 1">
-            <h3>Freshers Party</h3>
-            <p>Fun night with friends, dances, and games!</p>
-        </div>
-        <div class="card">
-            <img src="images/story2.jpg" alt="Story 2">
-            <h3>Sports Day</h3>
-            <p>Exciting competitions and great team spirit.</p>
-        </div>
-        <div class="card">
-            <img src="images/story3.jpg" alt="Story 3">
-            <h3>Farewell</h3>
-            <p>Bittersweet moments with all friends.</p>
-        </div>
+  <h2>College Stories</h2>
+  <div class="featured-stories">
+    <div class="card">
+      <img src="images/story1.jpg" alt="Freshers Party">
+      <h3>Freshers Party</h3>
+      <p>The night where everything started.</p>
+      <span class="read-more" onclick="openStory('Freshers Party', 'That night was magical — everyone was nervous yet excited. It was our first day as a college family. The dance floor lit up with energy, and by the end, we all became friends. The laughter, the teasing, and the music still echo in our memories.')">Read More</span>
     </div>
+
+    <div class="card">
+      <img src="images/story2.jpg" alt="Sports Day">
+      <h3>Sports Day</h3>
+      <p>When competition met friendship.</p>
+      <span class="read-more" onclick="openStory('Sports Day', 'From relay races to volleyball matches, the day was filled with cheering and passion. Even those who lost walked away with smiles because it wasn’t just about winning — it was about being together and celebrating teamwork.')">Read More</span>
+    </div>
+
+    <div class="card">
+      <img src="images/story3.jpg" alt="Farewell">
+      <h3>Farewell</h3>
+      <p>Bittersweet moments that ended a beautiful chapter.</p>
+      <span class="read-more" onclick="openStory('Farewell', 'Tears and laughter blended together as we said goodbye. Each hug carried a story, and each smile hid a tear. But even as we parted, our bond stayed strong — because college may end, but memories never do.')">Read More</span>
+    </div>
+  </div>
+</section>
+
+<section class="group-story">
+  <h2>Story of Our Group</h2>
+  <p>We started as strangers sitting on different benches, unsure of what the future held. But with every class bunked, every project completed, and every canteen tea shared — we built a friendship that turned into family.</p>
+  <p>Our group taught us that true friendship isn’t about being inseparable — it’s about being apart and nothing changing. Through laughter, late-night calls, and countless memories, our bond only grew stronger.</p>
+</section>
+
+<section class="individuals">
+    <h2>💫 Individual Stories 💫</h2>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Search by name... (e.g. Muskan, Vivek, Dheeraj)">
+  </div>
+
+  <div class="people" id="peopleList">
+    <div class="person">
+      <img src="images/story1.jpg" alt="Vivek">
+      <h3>Prateek Singh</h3>
+      <p>Always the tech brain of the group, Vivek made every project a success. His calm nature and creative ideas inspired everyone.</p>
+    </div>
+    <div class="person">
+      <img src="images/story2.jpg" alt="Muskan">
+      <h3>Muskan Dwivedi</h3>
+      <p>The heart of our circle — always full of energy and positivity. Her stories brought laughter and light to every dull moment.</p>
+    </div>
+    <div class="person">
+      <img src="images/story3.jpg" alt="Dheeraj">
+      <h3>Dheeraj Singh</h3>
+      <p>The entertainer of our group — from dance battles to pranks, he made every day a new adventure worth remembering.</p>
+    </div>
+     <div class="person">
+      <img src="images/story1.jpg" alt="Vivek">
+      <h3>Vivek Gupta</h3>
+      <p>Always the tech brain of the group, Vivek made every project a success. His calm nature and creative ideas inspired everyone.</p>
+    </div>
+    <div class="person">
+      <img src="images/story2.jpg" alt="Muskan">
+      <h3>Abhishek Pandey</h3>
+      <p>The heart of our circle — always full of energy and positivity. Her stories brought laughter and light to every dull moment.</p>
+    </div>
+    <div class="person">
+      <img src="images/story3.jpg" alt="Dheeraj">
+      <h3>Aditya Dwivedi</h3>
+      <p>The entertainer of our group — from dance battles to pranks, he made every day a new adventure worth remembering.</p>
+    </div>
+     <div class="person">
+      <img src="images/story1.jpg" alt="Vivek">
+      <h3>Prateek Singh</h3>
+      <p>Always the tech brain of the group, Vivek made every project a success. His calm nature and creative ideas inspired everyone.</p>
+    </div>
+    <div class="person">
+      <img src="images/story2.jpg" alt="Muskan">
+      <h3>Muskan Dwivedi</h3>
+      <p>The heart of our circle — always full of energy and positivity. Her stories brought laughter and light to every dull moment.</p>
+    </div>
+    <div class="person">
+      <img src="images/story3.jpg" alt="Dheeraj">
+      <h3>Dheeraj Singh</h3>
+      <p>The entertainer of our group — from dance battles to pranks, he made every day a new adventure worth remembering.</p>
+    </div>
+     <div class="person">
+      <img src="images/story1.jpg" alt="Vivek">
+      <h3>Abhishek Patel</h3>
+      <p>Always the tech brain of the group, Vivek made every project a success. His calm nature and creative ideas inspired everyone.</p>
+    </div>
+    <div class="person">
+      <img src="images/story2.jpg" alt="Muskan">
+      <h3>Kanak Gupta</h3>
+      <p>The heart of our circle — always full of energy and positivity. Her stories brought laughter and light to every dull moment.</p>
+    </div>
+    <div class="person">
+      <img src="images/story2.jpg" alt="Muskan">
+      <h3>Jeevesh Shukla</h3>
+      <p>The heart of our circle — always full of energy and positivity. Her stories brought laughter and light to every dull moment.</p>
+    </div>
+    <div class="person">
+      <img src="images/story3.jpg" alt="Dheeraj">
+      <h3>Abhishek Pandey(08)</h3>
+      <p>The entertainer of our group — from dance battles to pranks, he made every day a new adventure worth remembering.</p>
+    </div>
+     <div class="person">
+      <img src="images/story1.jpg" alt="Vivek">
+      <h3>Aman Mishra</h3>
+      <p>Always the tech brain of the group, Vivek made every project a success. His calm nature and creative ideas inspired everyone.</p>
+    </div>
+    <div class="person">
+      <img src="images/story2.jpg" alt="Muskan">
+      <h3>Aman Verma</h3>
+      <p>The heart of our circle — always full of energy and positivity. Her stories brought laughter and light to every dull moment.</p>
+    </div>
+    <div class="person">
+      <img src="images/story3.jpg" alt="Dheeraj">
+      <h3>Dev Kapoor</h3>
+      <p>The entertainer of our group — from dance battles to pranks, he made every day a new adventure worth remembering.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-    <p>© 2025 College Group. All rights reserved.</p>
+  <p>© 2025 College Group. All rights reserved.</p>
 </footer>
-<script src="js/main.js"></script>
+
+<!-- Modal Popup -->
+<div id="storyModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeStory()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<script>
+  // Open Story Modal
+  function openStory(title, text) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalText").innerText = text;
+    document.getElementById("storyModal").style.display = "flex";
+  }
+
+  // Close Modal
+  function closeStory() {
+    document.getElementById("storyModal").style.display = "none";
+  }
+
+  // Close if user clicks outside modal
+  window.onclick = function (event) {
+    if (event.target == document.getElementById("storyModal")) {
+      closeStory();
+    }
+  }
+
+  // Search Functionality
+  const searchInput = document.getElementById("searchInput");
+  const peopleList = document.getElementById("peopleList");
+  const people = peopleList.getElementsByClassName("person");
+
+  searchInput.addEventListener("keyup", function () {
+    const filter = searchInput.value.toLowerCase();
+    Array.from(people).forEach(person => {
+      const name = person.querySelector("h3").innerText.toLowerCase();
+      if (name.includes(filter)) {
+        person.classList.remove("hidden");
+      } else {
+        person.classList.add("hidden");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

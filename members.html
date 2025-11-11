@@ -5,7 +5,251 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Members - College Memories</title>
-    <link rel="stylesheet" href="css/style.css">
+   <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: #fff;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff;
+    }
+
+    to {
+      text-shadow: 0 0 25px #ff00ff, 0 0 45px #00ffff;
+    }
+  }
+
+  nav {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: #ffea00;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .members {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .members h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .featured-stories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    padding: 0 20px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 260px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.4s, box-shadow 0.4s;
+    position: relative;
+    animation: popUp 1s ease forwards;
+  }
+
+  @keyframes popUp {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .card:hover {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 0 25px #ff00ff, 0 0 35px #00ffff;
+  }
+
+  .card img {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .card:hover img {
+    transform: scale(1.05);
+  }
+
+  .card h3 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    color: #f1f1f1;
+  }
+
+  .card a {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: #ff007f;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .card a:hover {
+    background: #00ffff;
+    color: black;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  /* Floating Emojis */
+  .emoji {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.8;
+    animation: floatEmoji 10s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes floatEmoji {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(-10vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* ✅ Responsive Design */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      padding: 5px 8px;
+    }
+
+    .card img {
+      height: 180px;
+    }
+
+    .members h2 {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav {
+      gap: 5px;
+    }
+
+    nav a {
+      font-size: 0.8rem;
+    }
+
+    .featured-stories {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      max-width: 100%;
+    }
+
+    .card img {
+      height: 290px;
+    }
+
+    footer {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
 </head>
 
 <body>
@@ -23,113 +267,101 @@
     </header>
 
     <section class="members">
-        <h2>Samiti Members</h2>
+        <h2>Samiti Members 💫</h2>
         <div class="featured-stories">
             <div class="card">
-                <img src="images/vivek2.jpg" alt="Member 1">
+                <img src="images/vivek2.jpg" alt="Vivek Kumar">
                 <h3>Vivek Kumar</h3>
                 <p>Roll No: 144</p>
-                <a href="vivek.html">read more</a>
-
+                <a href="vivek.html">Read More</a>
             </div>
             <div class="card">
-                <img src="images/muskan.jpg" alt="Member 2">
+                <img src="images/muskan.jpg" alt="Muskan Dwivedi">
                 <h3>Muskan Dwivedi</h3>
                 <p>Roll No: 46</p>
-                <a href="muskan.html">read more</a>
+                <a href="muskan.html">Read More</a>
             </div>
             <div class="card">
-                <img src="images/aman.jpg" alt="Member 1">
+                <img src="images/aman.jpg" alt="Aman Verma">
                 <h3>Aman Verma</h3>
                 <p>Roll No: 20</p>
-                <a href="verma.html">read more</a>
+                <a href="verma.html">Read More</a>
             </div>
-                <div class="card">
-                <img src="images/prateek.jpg" alt="Member 1">
+            <div class="card"> <img src="images/prateek.jpg" alt="Member 1">
                 <h3>Prateek Singh</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="prateek.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="prateek.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/jaadu.jpg" alt="Member 2">
+            <div class="card"> <img src="images/jaadu.jpg" alt="Member 2">
                 <h3>Kanak Gupta</h3>
-                <p>Roll No: 53</p>
-                <a href="kanak.html">read more</a>
+                <p>Roll No: 53</p> <a href="kanak.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/pandey.jpg" alt="Member 1">
+            <div class="card"> <img src="images/pandey.jpg" alt="Member 1">
                 <h3>Abhishek pandey</h3>
-                <p>Roll No: 07</p>
-                <a href="pandey.html">read more</a>
+                <p>Roll No: 07</p> <a href="pandey.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/abhay.jpg" alt="Member 2">
+            <div class="card"> <img src="images/abhay.jpg" alt="Member 2">
                 <h3>Abhay Mishra</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="abhay.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="abhay.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/sahu.jpg" alt="Member 1">
+            <div class="card"> <img src="images/sahu.jpg" alt="Member 1">
                 <h3>Abhishek Sahu</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="sahu.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="sahu.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/member2.jpg" alt="Member 2">
+            <div class="card"> <img src="images/member2.jpg" alt="Member 2">
                 <h3>Dev Kapoor</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="devkapoor.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="devkapoor.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/member1.jpg" alt="Member 1">
+            <div class="card"> <img src="images/member1.jpg" alt="Member 1">
                 <h3>Abhishek Patel</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="abhishekpatel.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="abhishekpatel.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/member2.jpg" alt="Member 2">
+            <div class="card"> <img src="images/member2.jpg" alt="Member 2">
                 <h3>Aditya Dwivedi</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="adityadwivedi.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="adityadwivedi.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/member1.jpg" alt="Member 1">
+            <div class="card"> <img src="images/member1.jpg" alt="Member 1">
                 <h3>Jeevesh Shukla</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="jeeveshshukla.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="jeeveshshukla.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/member2.jpg" alt="Member 2">
+            <div class="card"> <img src="images/member2.jpg" alt="Member 2">
                 <h3>Abhishek Pandey(08)</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="abhishekpandey08.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="abhishekpandey08.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/member1.jpg" alt="Member 1">
+            <div class="card"> <img src="images/member1.jpg" alt="Member 1">
                 <h3>Dheeraj Singh</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="dheeraj.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="dheeraj.html">read more</a>
             </div>
-            <div class="card">
-                <img src="images/member2.jpg" alt="Member 2">
+            <div class="card"> <img src="images/member2.jpg" alt="Member 2">
                 <h3>Palak Chauhan</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="palak.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="palak.html">read more</a>
             </div>
-        
-            <div class="card">
-                <img src="images/member2.jpg" alt="Member 2">
+            <div class="card"> <img src="images/member2.jpg" alt="Member 2">
                 <h3>Udit Sharma</h3>
-                <p>Batch: 2022-2026</p>
-                <a href="uditsharma.html">read more</a>
+                <p>Batch: 2022-2026</p> <a href="uditsharma.html">read more</a>
             </div>
+            <!-- Add the rest of your members here -->
         </div>
     </section>
 
     <footer>
         <p>© 2025 College Group. All rights reserved.</p>
     </footer>
-    <script src="js/main.js"></script>
+
+    <!-- <script>
+        // Floating emojis animation 🎈✨❤️
+        const emojis = ["✨", "❤️", "🎓", "💫", "🥳", "🌸"];
+        function createEmoji() {
+            const emoji = document.createElement("div");
+            emoji.classList.add("emoji");
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.animationDuration = (8 + Math.random() * 5) + "s";
+            document.body.appendChild(emoji);
+
+            setTimeout(() => emoji.remove(), 12000);
+        }
+        setInterval(createEmoji, 600);
+    </script> -->
 </body>
 
 </html>
