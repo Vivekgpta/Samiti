@@ -5,7 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samiti</title>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <style>/* ================= MOBILE VIEW ================= */
+@media (max-width: 768px) {
+
+  /* Header layout compact ho jaaye */
+  .header-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  /* Logo size adjust */
+  .logo img {
+    width: 60px;
+    height: auto;
+  }
+
+  /* Nav container vertical stack na ho */
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+  }
+
+  /* Heading chhota aur left align */
+  .nav-container h1 {
+    font-size: 1.3rem;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  /* Hide nav links by default */
+  .nav-container nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: linear-gradient(to right, #ff0066, #ff6600);
+    width: 160px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  /* ☰ Menu icon (text-based pseudo element) */
+  .nav-container::before {
+    content: "☰";
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Jab user hover kare toh menu show ho */
+  .nav-container:hover nav {
+    display: flex;
+  }
+
+  /* Links styling in dropdown */
+  .nav-container nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 0;
+    text-align: right;
+  }
+
+  .nav-container nav a:hover {
+    text-decoration: underline;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -57,5 +129,6 @@
         <p>© 2025 College Group. All rights reserved.</p>
     </footer>
 </body>
+
 
 </html>
